@@ -1,4 +1,4 @@
-# JAVA Exercicios_JAVA
+# JAVA 
 
  Java é uma linguagem orientada para objetos,ou seja, todos os elementos inseridos nela são chamados de objetos que interagem entre si.Na linguagem Java os códigos são escritos
  dentro de uma determinada classe, sendo que todos os elementos são chamados de objetos.Daí o fato da linguagem ser voltada para a orientação de objetos,mais saiba tambem que ela 
