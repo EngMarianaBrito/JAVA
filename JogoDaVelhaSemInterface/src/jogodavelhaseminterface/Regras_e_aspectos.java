@@ -6,7 +6,11 @@ package jogodavelhaseminterface;
  */
 
 public class Regras_e_aspectos {
-    private String [][] tabuleiro ={{"A","B","C"},{"D","E","F"},{"G","H","I"}} ;
+    private final String [][] tabuleiro ;
+
+    public Regras_e_aspectos() {
+        this.tabuleiro = new String[][]{{"1","2","3"}, {"4","5","6"}, {"7","8","9"}};
+    }
 
     //metodo para a impressão da jogada
     public String tabuleiro_impressao(){
@@ -44,39 +48,51 @@ public class Regras_e_aspectos {
         vitoria[7] = tabuleiro[0][2] + tabuleiro[1][1] + tabuleiro[2][0]; 
         
         //mudando valores e indicando quem esta jogando
-        for(int i = 0; i < vitoria.length; i++) {
-            if(vitoria[i].equals("XXX")){
+        for (String vitoria1 : vitoria) {
+            if (vitoria1.equals("XXX")) {
                 ganhador = " PARTICIPANTE 1";
-            }else if(vitoria[i].equals("OOO")){
-                ganhador = " PARTICIPANTE 2";                
-            }else if(jogada == 9){
+            } else if (vitoria1.equals("OOO")) {
+                ganhador = " PARTICIPANTE 2";
+            } else if(jogada == 9){
                 ganhador = "OPA EMPATE!";
             }else if(jogada == 9){
-               return ganhador;
+                return ganhador;
             }
         }
         return ganhador;  
     }
     
     public void jogada_impressao (String val,String jogador){
-        if (val.equals("1")) {   
-           tabuleiro[0][0] = jogador;                 
-        }else if (val.equals("2")) {
-           tabuleiro[0][1] = jogador;
-        }else if (val.equals("3")) {
-           tabuleiro[0][2] = jogador;
-        }else if (val.equals("4")) {
-           tabuleiro[1][0] = jogador;
-        }else if (val.equals("5")) {
-           tabuleiro[1][1] = jogador;
-        }else if (val.equals("6")) {
-           tabuleiro[1][2] = jogador;
-        }else if (val.equals("7")) {
-           tabuleiro[2][0] = jogador;
-        }else if (val.equals("8")) {
-           tabuleiro[2][1] = jogador;
-        }else if(val.equals("9")) {
-           tabuleiro[2][2] = jogador;
+        switch (val) {
+            case "1":
+                tabuleiro[0][0] = jogador;
+                break;
+            case "2":
+                tabuleiro[0][1] = jogador;
+                break;
+            case "3":
+                tabuleiro[0][2] = jogador;
+                break;
+            case "4":
+                tabuleiro[1][0] = jogador;
+                break;
+            case "5":
+                tabuleiro[1][1] = jogador;
+                break;
+            case "6":
+                tabuleiro[1][2] = jogador;
+                break;
+            case "7":
+                tabuleiro[2][0] = jogador;
+                break;
+            case "8":
+                tabuleiro[2][1] = jogador;
+                break;
+            case "9":
+                tabuleiro[2][2] = jogador;
+                break;
+            default:
+                break;
         }
     } 
     
@@ -98,9 +114,6 @@ public class Regras_e_aspectos {
             return true;                    
         }else if (tabuleiro[2][1].equals(val)){   
             return true;                    
-        }else if (tabuleiro[2][2].equals(val)){   
-            return true;                    
-        }else   
-        return false;
+        }else return tabuleiro[2][2].equals(val);
     }
 }
