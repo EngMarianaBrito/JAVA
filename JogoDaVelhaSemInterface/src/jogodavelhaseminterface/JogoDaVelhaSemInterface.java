@@ -1,15 +1,14 @@
-//Intuito:Construir um jogo da velha simples utilazando apenas classe;
+//Intuito:Construir um jogo da velha simples utilazando apenas POO;
 //REGRAS QUE DEVE SEGUIR:BASE DE PESQUISA => https://segredosdomundo.r7.com/jogo-da-velha-como-jogar/
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//JOGO SÓ ACABA QUANDO TODO O TABULEIRO FOR PRENCHIDO,POR ISSO PODE HAVER EMPATE!!!!!!!
-//OU QUANDO ALGUM JOGADOR ATINGI OS METODOS DE VITORIA (HORIZONTAL,VERTICAL,INCLINADA)
+//PODE HAVER EMPATE QUANDO NENHUM JOGADOR ATINGI OS METODOS DE VITORIA (HORIZONTAL,VERTICAL,INCLINADA)
 //@author:Lia Mariana Brito.
 package jogodavelhaseminterface;
 
 import java.util.Scanner;
 
 public class JogoDaVelhaSemInterface {
-    
+        
     public static void main(String[] args) {
 
         Scanner verificando = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class JogoDaVelhaSemInterface {
         int jogadas = 0;
         
         do{
-            System.out.println("\n");
+            
             System.out.println("===============================");
             System.out.println("      MENU JOGO DA VELHA   ");
             System.out.println("===============================");
@@ -32,69 +31,87 @@ public class JogoDaVelhaSemInterface {
             opcao = verificando.nextInt();
             
             switch(opcao){
-                case 1 :      
+                
+                case 1 :
+                    
+                    for (int i = 0; i < 2; i++) {
+            
+                        System.out.println("---------------------------------");
+                        System.out.println("->PARTICIPANTE "+i); 
+                        System.out.println("\tBOA SORTE!");
+                
+                    }
+                    
                     while(true){
-                        //perfume
+                        
+                        System.out.println("\n");
                         System.out.println("========================");
                         System.out.println("   JOGO DA VELHA ICEV   ");
                         System.out.println("========================");
-                        System.out.println("-------Bom jogo!--------\n");        
-
+                        System.out.println("-------Bom jogo!--------\n"); 
+                
                         //instaciando classe do tabuleiro
                         jogo.tabuleiro_impressao();          
 
                         do{
-                            System.out.println("-----------------------");
-                            System.out.println(">PARTICIPANTE 1");
-                            System.out.print(">Informe a Jogada: ");
+                            
+                            System.out.print(">PART 1 : Informe o numero da  sua Jogada: ");
                             manuseamento_jogada = verificando.nextLine();
+                            
                             while(!jogo.validacao(manuseamento_jogada)){
-                                System.out.println("TENTE NOVAMENTE");
+                                System.out.println("ERRO!");
                                 manuseamento_jogada = verificando.nextLine();
                                 validada = 0;
-                            }  
+                            } 
+                            
                             jogo.jogada_impressao(manuseamento_jogada,"X");
                             validada = 1 ;
-                        }while(validada == 0);           
+                        }
+                        while(validada == 0);           
                         jogadas++;validada = 0;
                         if(!jogo.jogo_Vencedor(jogadas).equals("null")){
                             break;
+                            
                         }do{
-                            System.out.println("-----------------------");
-                            System.out.println(">PARTICIPANTE 2");
-                            System.out.print(">Informe a Jogada: ");
+                            
+                            System.out.print(">PART 2 :Informe o numero da  sua Jogada: ");
                             manuseamento_jogada = verificando.nextLine();
+                            
                             while(!jogo.validacao(manuseamento_jogada)){
                                 System.out.println("------------------");
-                                System.out.println(">>TENTE NOVAMENTE<<");
+                                System.out.println("ERRO!");
                                 manuseamento_jogada = verificando.nextLine();
                                 validada = 0;
                             }  
-                            jogo.jogada_impressao(manuseamento_jogada,"0");
+                            jogo.jogada_impressao(manuseamento_jogada,"Y");
                             validada = 1 ;
-                        }while(validada == 0);         
+                        }
+                        
+                        while(validada == 0);         
                         jogadas++;validada = 0;          
                         if(!jogo.jogo_Vencedor(jogadas).equals("null")){
                             break;
                         }
+                        
                     }       
-                    System.out.println(">>>>RESULTADO<<<<");
-                    System.out.println(jogo.jogo_Vencedor(jogadas));
-                    System.out.println("    PARABENS ");
+                    System.out.println("VENCEDOR = > "+jogo.jogo_Vencedor(jogadas)+ " Parabens!");
                     break;
+                    
                 case 2 :
+                    System.out.println("----------------------------------");
+                    System.out.println(">>>>>>ATÉ MAIS!<<<<<<"); 
+                    System.out.println("----------------------------------");
+                    System.out.println("Se ainda não jogo,lembre-se que vale a pena!");
+                    System.out.println("O jogo da velha estimula a velocidade de raciocínio");
                     break;
+                    
                 default:
-                    System.out.println("Não reconheço essa opção! =( ");
+                    System.out.println("Desculpa,não reconheço essa opção! =( ");
             }
+            
         }while(opcao != 2);
-            System.out.println("----------------------------------");
-            System.out.println(">>>>>>ATÉ MAIS!<<<<<<"); 
-            System.out.println("----------------------------------");
-            System.out.println("Se ainda não jogo,lembre-se que vale a pena!");
-            System.out.println("O jogo da velha estimula a velocidade de raciocínio,"
-                    +"até os egipicios jogavam,iai vai ficar de fora ?Volta e clica na opção"
-                    + "opção da FELICIDADE!");
+          System.out.println("Espero que tenha gostado!");  
+            
     } 
     
 }
