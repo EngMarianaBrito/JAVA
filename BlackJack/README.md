@@ -1,13 +1,13 @@
 # BlackJack 21
-## O jogo é simples e utiliza um baralho comum de 52 cartas (13 valores para cada um dos 4 naipes distintos).
+O jogo é simples e utiliza um baralho comum de 52 cartas (13 valores para cada um dos 4 naipes distintos).
 
-### __Objetivo__ 
+### __-> Objetivo__ 
 Fazer o somatório do valor das cartas na mão chegar o mais próximo possível de 21, sem ultrapassar este valor.
 
-### __Quantos jogam?__
+### __-> Quantos jogam?__
 Pelo menos 2 jogadores.
 
-### __Como jogar?__ 
+### __-> Como jogar?__ 
 1. Cada jogador recebe duas cartas;
 2. O jogador da vez soma os valores de suas cartas e indica ao computador se quer receber outra carta.
 3. Repete o passo 2 até que o jogador não queira mais cartas. 
